@@ -7,7 +7,7 @@ export default function Cart() {
     <div className="product-list">
         {cartItems.length === 0 ? ( <p>Your cart is empty.</p> ) : 
       cartItems.map((item) => (
-              <ProductCard key={item.id} product={item} onClick={() => {}}  />
+              <ProductCard key={item.id} product={item} quantity={item.quantity} onClick={() => {}}  />
                       ))  }
                   </div>
   );
