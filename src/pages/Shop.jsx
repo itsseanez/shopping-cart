@@ -5,7 +5,6 @@ import { useOutletContext } from "react-router-dom";
 export default function Shop() {
   const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useOutletContext();
-  console.log(cartItems);
 
   useEffect(() => {
     async function fetchProducts() {
