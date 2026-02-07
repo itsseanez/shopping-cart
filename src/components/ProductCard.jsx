@@ -8,6 +8,8 @@ export default function ProductCard({
   text,
   variant,
   quantity,
+  qtyIncrement,
+  qtyDecrement
 }) {
   const [qty, setQty] = useState(quantity ?? 1);
 
@@ -23,15 +25,18 @@ export default function ProductCard({
     }
   }
 
+  let newIncrement = qtyIncrement || increment;
+  let newDecrement = qtyDecrement || decrement;
+
   return (
     <div className={styles.productCard}>
       <img src={product.image} alt={product.title} />
       <h2>{product.title}</h2>
       <p>${product.price}</p>
       <div className={styles.quantity}>
-        <Button onClick={decrement} text="-" variant="secondary" />
-        <span>{qty}</span>
-        <Button onClick={increment} text="+" variant="secondary" />
+        <Button onClick={newDecrement} text="-" variant="secondary" />
+        <span>{quantity ?? qty}</span>
+        <Button onClick={newIncrement} text="+" variant="secondary" />
       </div>
       <Button
         text={text}
