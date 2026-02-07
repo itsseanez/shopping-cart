@@ -1,4 +1,3 @@
-// src/routes.jsx
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";

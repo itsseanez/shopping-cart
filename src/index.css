@@ -17,7 +17,7 @@
 }
 
 body {
-  background-color: var(--tertiary-color);
+  background-color: var(--white-color);
   color: var(--primary-color);
 }
 
@@ -47,4 +47,10 @@ nav a:hover {
 
 main {
   padding: 1rem;
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  gap: 1rem;
 }
