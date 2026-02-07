@@ -1,13 +1,12 @@
+import { Link } from "react-router";
+
 export default function Header() {
   return (
     <header>
-      <h1>My E-commerce Store</h1>
+      <Link to='/'><h1>My E-commerce Store</h1></Link>
       <nav>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/shop">Shop</a></li>
-          <li><a href="/cart">Cart</a></li>
-        </ul>
+        <Link to="/shop">Shop</Link>
+        <Link to="/cart">Cart</Link>
       </nav>
     </header>
   );
