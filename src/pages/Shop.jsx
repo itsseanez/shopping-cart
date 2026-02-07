@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
+import { useOutletContext } from "react-router-dom";
 
 export default function Shop() {
   const [products, setProducts] = useState([]);
+  const [cartItems, setCartItems] = useOutletContext();
+  console.log(cartItems);
 
   useEffect(() => {
     async function fetchProducts() {
@@ -18,10 +21,23 @@ export default function Shop() {
     fetchProducts();
   }, []);
 
+  function handleAddToCart(product, quantity) {
+    const existingItem = cartItems.find((item) => item.id === product.id);
+    if (existingItem) {
+      setCartItems((items) =>
+        items.map((item) =>
+          item.id === product.id ? { ...item, quantity: item.quantity + quantity } : item
+        )
+      );
+    } else {
+      setCartItems((items) => [...items, { ...product, quantity: quantity }]);
+    }
+  }
+
   return (
     <div className="product-list">
       {products.map((product) => (
-          <ProductCard key={product.id} product={product} onAction={() => {}} />
+          <ProductCard key={product.id} product={product} onClick={handleAddToCart}  />
         ))}
     </div>
   );

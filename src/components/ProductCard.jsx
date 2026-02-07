@@ -7,19 +7,18 @@ export default function ProductCard({
   onClick,
   text,
   variant,
-  onQuantityChange,
 }) {
   const [qty, setQty] = useState(1);
 
   function increment() {
-    setQty((q) => q + 1);
-    onQuantityChange(product.id, qty + 1);
+    const newQty = qty + 1;
+    setQty(newQty);
   }
 
   function decrement() {
     if (qty > 1) {
-      setQty((q) => q - 1);
-      onQuantityChange(product.id, qty - 1);
+      const newQty = qty - 1;
+      setQty(newQty);
     }
   }
 
@@ -33,7 +32,7 @@ export default function ProductCard({
         <span>{qty}</span>
         <Button onClick={increment} text="+" variant="secondary" />
       </div>
-      <Button text={text} variant={variant} onClick={() => onClick(product)} />
+      <Button text={text} variant={variant} onClick={() => onClick(product, qty)} />
     </div>
   );
 }

@@ -1,8 +1,11 @@
 // src/components/Layout.jsx
 import { Outlet } from "react-router-dom";
 import { Link } from "react-router";
+import { useState } from "react";
 
 export default function Layout() {
+  const [cartItems, setCartItems] = useState([]);
+
   return (
     <>
       <header>
@@ -13,7 +16,7 @@ export default function Layout() {
       </nav>
     </header>
       <main>
-        <Outlet />
+        <Outlet context={[cartItems, setCartItems]}/>
       </main>
     </>
   );
