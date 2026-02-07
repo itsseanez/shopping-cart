@@ -25,7 +25,6 @@ export default function Cart() {
           )
         );
       }
-      console.log(cartItems);
   return (
     <div className="product-list">
         {cartItems.length === 0 ? ( <p>Your cart is empty.</p> ) : 
