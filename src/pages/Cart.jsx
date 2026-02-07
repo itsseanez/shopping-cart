@@ -1,8 +1,14 @@
+import {useOutletContext} from "react-router-dom";
+import ProductCard from "../components/ProductCard";
+
 export default function Cart() {
+    const [cartItems, setCartItems] = useOutletContext();
   return (
-    <div className="cart">
-      <h1>Your Shopping Cart</h1>
-      <p>Review the items in your cart and proceed to checkout when ready.</p>
-    </div>
+    <div className="product-list">
+        {cartItems.length === 0 ? ( <p>Your cart is empty.</p> ) : 
+      cartItems.map((item) => (
+              <ProductCard key={item.id} product={item} onClick={() => {}}  />
+                      ))  }
+                  </div>
   );
 }
